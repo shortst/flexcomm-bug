@@ -1,0 +1,19 @@
+#include "fc-pinctrl.dtsi"
+
+&flexcomm7 {
+	status = "okay";
+};
+&flexcomm7_lpi2c7 {
+    status = "disabled";
+};
+
+&flexcomm7_lpspi7 {
+	pinctrl-0 = <&pinmux_flexcomm7_lpspi>;
+	pinctrl-names = "default";
+	status = "okay";
+	max6675@0 {
+		compatible = "maxim,max6675";
+		reg = <0>;
+		spi-max-frequency = <4300000>;
+	};
+};
